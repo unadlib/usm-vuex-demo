@@ -1,8 +1,8 @@
 <template>
   <div class="counter">
-    <button @click="increase">+</button>
-    <span>{{count}}</span>
-    <button @click="decrease">-</button>
+    <button @click="counter.calculate(1)">+</button>
+    <span>{{counter.count}}</span>
+    <button @click="counter.calculate(-1)">-</button>
   </div>
 </template>
 <script lang="ts">
@@ -17,18 +17,6 @@ import Counter from "../modules/Counter";
 export default class CounterView extends Vue {
   get counter() {
     return this.portal.counter;
-  }
-  
-  get count() {
-    return this.counter.count;
-  }
-
-  increase() {
-    this.counter.calculate(1);
-  }
-
-  decrease() {
-    this.counter.calculate(-1);
   }
 }
 </script>

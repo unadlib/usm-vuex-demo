@@ -3,7 +3,7 @@
     <input v-model="input" />
     <button @click="add">Add</button>
     <ul id="example-1">
-      <li v-for="item in list">
+      <li v-for="item in todos.list">
         {{ item.text }}
       </li>
     </ul>
@@ -26,29 +26,9 @@ export default class TodosView extends Vue {
     return this.portal.todos;
   }
 
-  get list() {
-    return this.todos.list;
-  }
-
   add() {
     this.todos.add(this.input);
     this.input = '';
-  }
-
-  toggle(index: number) {
-    this.todos.toggle(index);
-  }
-
-  edit(text: string, index: number) {
-    this.todos.edit(text, index);
-  }
-
-  remove(index: number) {
-    this.todos.remove(index);
-  }
-
-  clearAllCompleted() {
-    this.todos.clearAllCompleted();
   }
 }
 </script>

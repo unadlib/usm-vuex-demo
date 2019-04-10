@@ -5,36 +5,46 @@ interface Todo {
   completed: boolean;
 }
 
-interface State {
-  list: Todo[];
+function defineState(target: any, states: any) {
+  Object.entries(states).forEach(([key, value]) => {
+    Object.defineProperty(target, key, state(target, key, { initializer: () => value }));
+  });
 }
 
 export default class Counter extends Module {
-  @state list = [];
+  // @state list = [];
+  list: Todo[];
+  constructor(...args: []) {
+    super(...args);
+    this.list = [];
+    defineState(this, {
+      list: this.list,
+    });
+  }
 
   @action
-  add(text: string, state: State) {
+  add(text: string, state?: any) {
     state.list.push({ text, completed: false });
   }
 
   @action
-  toggle(index: number, state: State) {
+  toggle(index: number, state?: any) {
     const todo = state.list[index];
     todo.completed = !todo.completed;
   }
 
   @action
-  edit(text: string, index: number, state: State) {
+  edit(text: string, index: number, state?: any) {
     state.list[index].text = text;
   }
 
   @action
-  remove(index: number, state: State) {
+  remove(index: number, state?: any) {
     state.list.splice(index, 1);
   }
 
   @action
-  clearAllCompleted(state: State) {
-    state.list = state.list.filter(({ completed }) => !completed);
+  clearAllCompleted(state?: any) {
+    state.list = state.list.filter(({ completed }: Todo) => !completed);
   }
 }

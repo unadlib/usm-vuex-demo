@@ -2,8 +2,8 @@
   <div class="home">
     <input v-model="input" />
     <button @click="add">Add</button>
-    <ul id="example-1">
-      <li v-for="item in todos.list">
+    <ul>
+      <li v-for="(item, index) in todos.list" :key="index">
         {{ item.text }}
       </li>
     </ul>
@@ -14,11 +14,7 @@
 import { Component, Vue } from "vue-property-decorator";
 import Todos from "../modules/Todos";
 
-@Component({
-  components: {
-    // Todos
-  }
-})
+@Component({})
 export default class TodosView extends Vue {
   input = '';
 

@@ -12,7 +12,7 @@
   "dependencies": {
     "core-js": "^2.6.5",
     "register-service-worker": "^1.6.2",
-    "usm-vuex": "^1.0.3",
+    "usm-vuex": "^1.0.4",
     "vue": "^2.6.6",
     "vue-class-component": "^6.0.0",
     "vue-property-decorator": "^8.0.0",

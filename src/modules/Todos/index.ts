@@ -17,9 +17,7 @@ export default class Counter extends Module {
   constructor(...args: []) {
     super(...args);
     this.list = [];
-    defineState(this, {
-      list: this.list,
-    });
+    this.defineStates('list');
   }
 
   @action

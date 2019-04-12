@@ -1,30 +1,32 @@
-<template>
-  <div class="home">
-    <input v-model="input" />
-    <button @click="add">Add</button>
-    <ul>
-      <li v-for="(item, index) in todos.list" :key="index">
-        {{ item.text }}
-      </li>
-    </ul>
-  </div>
-</template>
-
-<script lang="ts">
+<script lang="tsx">
 import { Component, Vue } from "vue-property-decorator";
 import Todos from "../modules/Todos";
 
-@Component({})
+@Component
 export default class TodosView extends Vue {
-  input = '';
+  value = '';
 
   get todos() {
     return this.portal.todos;
   }
 
   add() {
-    this.todos.add(this.input);
-    this.input = '';
+    this.todos.add(this.value);
+    this.value = '';
+  }
+
+  render() {
+    return (
+      <div class="home">
+        <input value={this.value} onInput={(e: any) => { this.value = e.target.value; }}/>
+        <button onClick={() => this.add()}>Add</button>
+        <ul>
+          {
+            this.todos.list.map(({ text }) => <li>{text}</li>)
+          }
+        </ul>
+      </div>
+    )
   }
 }
 </script>

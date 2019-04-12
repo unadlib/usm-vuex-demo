@@ -13,3 +13,12 @@
 - Unit test
 - Lint
 - Sass
+
+## Usage
+
+Run
+```bash
+yarn
+npx lerna boostrap
+yarn start
+```

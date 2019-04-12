@@ -1,12 +1,11 @@
 import Module, { state, action, computed } from "../../lib/baseModule";
 
 export default class Counter extends Module {
-  count: number;
+  @state count: number;
 
   constructor(...args: []) {
     super(...args);
     this.count = 0;
-    this.defineStates('count');
   }
 
   @action

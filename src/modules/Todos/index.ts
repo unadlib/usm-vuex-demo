@@ -12,12 +12,11 @@ function defineState(target: any, states: any) {
 }
 
 export default class Counter extends Module {
-  // @state list = [];
-  list: Todo[];
+  @state list: Todo[];
+
   constructor(...args: []) {
     super(...args);
     this.list = [];
-    this.defineStates('list');
   }
 
   @action

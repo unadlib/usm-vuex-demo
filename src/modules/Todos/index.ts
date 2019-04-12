@@ -8,12 +8,7 @@ interface Todo {
 
 @injectable()
 export default class Counter extends Module {
-  @state list: Todo[];
-
-  constructor(...args: []) {
-    super(...args);
-    this.list = [];
-  }
+  @state list: Todo[] = [];
 
   @action
   add(text: string, state?: any) {

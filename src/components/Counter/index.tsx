@@ -1,4 +1,5 @@
 import { Component, Vue } from "vue-property-decorator";
+import './style.scss';
 
 @Component
 export default class CounterView extends Vue {
@@ -8,7 +9,7 @@ export default class CounterView extends Vue {
 
   render(){
     return (
-      <div class="counter">
+      <div class="body">
         <button onClick={()=> this.counter.calculate(1)}>+</button>
         <span>{this.counter.count}</span>
         <button onClick={()=> this.counter.calculate(-1)}>-</button>

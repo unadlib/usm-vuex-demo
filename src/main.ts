@@ -7,8 +7,8 @@ import Counter from "./modules/Counter";
 import Todos from "./modules/Todos";
 import Navigation from "./modules/Navigation";
 import App from "./App.vue";
-import TodosView from "./views/Todos.vue";
-import CounterView from "./views/Counter.vue";
+import TodosView from "./components/Todos.vue";
+import CounterView from "./components/Counter.vue";
 
 Vue.config.productionTip = false;
 const container = new Container({ skipBaseClassChecks: true });

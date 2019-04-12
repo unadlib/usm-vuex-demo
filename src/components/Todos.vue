@@ -1,15 +1,30 @@
 <template>
-  <div class="todos">
-    {{msg}}
+  <div class="home">
+    <input v-model="input" />
+    <button @click="add">Add</button>
+    <ul>
+      <li v-for="(item, index) in todos.list" :key="index">
+        {{ item.text }}
+      </li>
+    </ul>
   </div>
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from "vue-property-decorator";
+import { Component, Vue } from "vue-property-decorator";
+import Todos from "../modules/Todos";
 
-@Component
-export default class HelloWorld extends Vue {
+@Component({})
+export default class TodosView extends Vue {
+  input = '';
+
+  get todos() {
+    return this.portal.todos;
+  }
+
+  add() {
+    this.todos.add(this.input);
+    this.input = '';
+  }
 }
 </script>
-<style scoped lang="scss">
-</style>

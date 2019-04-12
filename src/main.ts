@@ -1,6 +1,8 @@
+import "reflect-metadata";
 import Vue from "vue";
+import { Container } from 'inversify';
 import "./registerServiceWorker";
-import Portal from "./modules/Portal";
+import Portal, { AppOptions } from "./modules/Portal";
 import Counter from "./modules/Counter";
 import Todos from "./modules/Todos";
 import Navigation from "./modules/Navigation";
@@ -9,31 +11,30 @@ import TodosView from "./views/Todos.vue";
 import CounterView from "./views/Counter.vue";
 
 Vue.config.productionTip = false;
-const counter = new Counter();
-const todos = new Todos();
-const navigation = new Navigation();
-export const portal = Portal.create({
-  modules: {
-    todos,
-    counter,
-    navigation,
-  },
+const container = new Container({ skipBaseClassChecks: true });
+container.bind<Counter>("Counter").to(Counter);
+container.bind<Todos>("Todos").to(Todos);
+container.bind<Portal>("Portal").to(Portal);
+container.bind<Navigation>("Navigation").to(Navigation);
+container.bind<AppOptions>("AppOptions").toConstantValue({
   main: App,
   components: {
     home: {
       screen: TodosView,
       path: '/',
-      module: todos,
+      // module: 'todos',
     },
     counter: {
       screen: CounterView,
       // screen: () => import("./views/Counter.vue"),
       path: '/counter',
-      module: counter,
+      // module: 'counter',
     },
   }
 });
-const app = portal.createApp(Vue);
+const portal = container.get<Portal>("Portal");
+portal.bootstrap();
+const app = portal.createApp();
 Vue.prototype.portal = portal;
 
 new Vue(app).$mount("#app");

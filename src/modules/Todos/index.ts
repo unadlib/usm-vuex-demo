@@ -1,3 +1,4 @@
+import { injectable } from "inversify";
 import Module, { state, action, computed } from "../../lib/baseModule";
 
 interface Todo {
@@ -5,12 +6,7 @@ interface Todo {
   completed: boolean;
 }
 
-function defineState(target: any, states: any) {
-  Object.entries(states).forEach(([key, value]) => {
-    Object.defineProperty(target, key, state(target, key, { initializer: () => value }));
-  });
-}
-
+@injectable()
 export default class Counter extends Module {
   @state list: Todo[];
 

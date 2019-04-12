@@ -1,7 +1,9 @@
 import Vue from "vue";
 import Router from "vue-router";
-import Module, { state, action, computed } from "../../lib/baseModule";
+import { injectable } from "inversify";
+import Module from "../../lib/baseModule";
 
+@injectable()
 export default class Navigation extends Module {
   constructor(...args: []) {
     super(...args);

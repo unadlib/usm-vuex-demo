@@ -1,6 +1,4 @@
-<script lang="tsx">
 import { Component, Vue } from "vue-property-decorator";
-import Todos from "../modules/Todos";
 
 @Component
 export default class TodosView extends Vue {
@@ -29,4 +27,3 @@ export default class TodosView extends Vue {
     )
   }
 }
-</script>

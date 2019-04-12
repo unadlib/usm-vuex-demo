@@ -1,6 +1,4 @@
-<script lang="tsx">
 import { Component, Vue } from "vue-property-decorator";
-import Counter from "../modules/Counter";
 
 @Component
 export default class CounterView extends Vue {
@@ -18,4 +16,3 @@ export default class CounterView extends Vue {
     )
   }
 }
-</script>

@@ -1,5 +1,7 @@
 import { injectable } from "inversify";
 import Module, { state, action, computed } from "../../lib/baseModule";
+import Todo from 'todo';
+console.log(Todo);
 
 interface Todo {
   text: string;

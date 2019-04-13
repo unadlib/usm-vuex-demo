@@ -1,26 +1,25 @@
-import { Component, Vue } from "vue-property-decorator";
+import { Component, Vue, Prop } from "vue-property-decorator";
 
 @Component
 export default class TodosView extends Vue {
   value = '';
 
-  get todos() {
-    return this.portal.todos;
-  }
+  @Prop(Function) add!: any; // shit type check with Vue
+  @Prop(Array) list!: any[];
 
-  add() {
-    this.todos.add(this.value);
+  addTodo() {
+    this.add(this.value);
     this.value = '';
   }
 
   render() {
     return (
       <div class="home">
-        <input value={this.value} onInput={(e: any) => { this.value = e.target.value; }}/>
-        <button onClick={() => this.add()}>Add</button>
+        <input v-model={this.value}/>
+        <button onClick={() => this.addTodo()}>Add</button>
         <ul>
           {
-            this.todos.list.map(({ text }) => <li>{text}</li>)
+            this.list.map(({ text }) => <li>{text}</li>)
           }
         </ul>
       </div>

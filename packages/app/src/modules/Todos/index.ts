@@ -37,4 +37,11 @@ export default class Counter extends Module {
   clearAllCompleted(state?: any) {
     state.list = state.list.filter(({ completed }: Todo) => !completed);
   }
+
+  getViewProps() {
+    return {
+      list: this.list,
+      add: (text: string) => this.add(text)
+    }
+  }
 }

@@ -3,6 +3,7 @@ import Module from "../../lib/baseModule";
 import Counter from "../Counter";
 import Todos from "../Todos";
 import Navigation from "../Navigation";
+import moduleConnect from '../../lib/moduleConnect';
 
 export interface AppOptions {
   main: any;
@@ -52,10 +53,12 @@ export default class Portal extends Module {
   get routes() {
     return Object.entries(this._appOptions.components)
       .map((item: any) => {
+        const [name, {path, screen, module}] = item;
+        const component = moduleConnect(screen, module);
         return {
-          path: item[1].path,
-          name: item[0],
-          component: item[1].screen
+          path,
+          name,
+          component
         }
       });
   }

@@ -22,13 +22,13 @@ container.bind<AppOptions>("AppOptions").toConstantValue({
     home: {
       screen: TodosView,
       path: '/',
-      // module: 'todos',
+      module: 'todos',
     },
     counter: {
       screen: CounterView,
       // screen: () => import("./views/Counter.vue"),
       path: '/counter',
-      // module: 'counter',
+      module: 'counter',
     },
   }
 });

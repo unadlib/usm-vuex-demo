@@ -1,18 +1,19 @@
-import { Component, Vue } from "vue-property-decorator";
+import { Component, Vue, Prop } from "vue-property-decorator";
 import './style.scss';
+
+type Calculate = (sum: number) => void;
 
 @Component
 export default class CounterView extends Vue {
-  get counter() {
-    return this.portal.counter;
-  }
+  @Prop() count!: number;
+  @Prop(Function) calculate!: Calculate; 
 
   render(){
     return (
       <div class="body">
-        <button onClick={()=> this.counter.calculate(1)}>+</button>
-        <span>{this.counter.count}</span>
-        <button onClick={()=> this.counter.calculate(-1)}>-</button>
+        <button onClick={()=> this.calculate(1)}>+</button>
+        <span>{this.count}</span>
+        <button onClick={()=> this.calculate(-1)}>-</button>
       </div>
     )
   }

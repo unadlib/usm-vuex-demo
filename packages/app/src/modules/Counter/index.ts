@@ -9,4 +9,11 @@ export default class Counter extends Module {
   calculate(num: number, state?: any) {
     state.count += num;
   }
+
+  getViewProps() {
+    return {
+      count: this.count,
+      calculate: (num: number) => this.calculate(num)
+    }
+  }
 }

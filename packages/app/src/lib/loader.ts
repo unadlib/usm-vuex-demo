@@ -1,5 +1,4 @@
 import { Container } from 'inversify';
-import Portal from '../modules/Portal';
 
 export function load(parmas: any = {}) {
   const { bootstrap, modules, ...option } =  parmas;
@@ -8,7 +7,7 @@ export function load(parmas: any = {}) {
     container.bind(key).to(modules[key]);
   });
   container.bind("AppOptions").toConstantValue(option);
-  const portal: Portal = container.get(bootstrap);
+  const portal: any = container.get(bootstrap);
   portal.bootstrap();
   const app = portal.createApp();
   return {

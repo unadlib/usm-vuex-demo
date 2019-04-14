@@ -1,7 +1,7 @@
 import { Container } from 'inversify';
 
-export function load(parmas: any = {}) {
-  const { bootstrap, modules, ...option } =  parmas;
+export function load(params: any = {}) {
+  const { bootstrap, modules, ...option } =  params;
   const container = new Container({ skipBaseClassChecks: true });
   Object.keys(modules).forEach(key => {
     container.bind(key).to(modules[key]);

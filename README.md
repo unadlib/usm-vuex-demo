@@ -1,5 +1,7 @@
 # usm-vuex-demo
 
+`usm-vuex` Repo: [https://github.com/unadlib/usm](https://github.com/unadlib/usm)
+
 ## Features
 
 - TSX

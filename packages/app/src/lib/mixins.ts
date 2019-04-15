@@ -13,7 +13,7 @@ export class FoobarMixin extends Vue {
     return a + b;
   }
 
-  log(str: Value): void {
+  log(value: Value): void {
     throw new Error("Method not implemented.");
   }
 }

@@ -1,5 +1,5 @@
 import { Component, Prop, Mixins } from "vue-property-decorator";
-import { FoobarMixin } from '../../lib/mixins';
+import { FoobarMixin, Value } from '../../lib/mixins';
 import './style.scss';
 
 type Calculate = (sum: number) => void;
@@ -11,6 +11,10 @@ export default class CounterView extends Mixins<FoobarMixin>(FoobarMixin) {
   
   created () {
     console.log(this.add(1, 1), this.mixinValue);
+  }
+
+  log(value: Value) {
+    console.log(value.text);
   }
 
   render(){

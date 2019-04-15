@@ -3,6 +3,7 @@ import { Component, Vue } from "vue-property-decorator";
 export type Value = {
   text: string;
 };
+
 @Component
 export class FoobarMixin extends Vue {
   mixinValue = 'Hello'

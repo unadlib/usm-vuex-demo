@@ -5,4 +5,8 @@ import Component from 'vue-class-component'
 @Component
 export class FoobarMixin extends Vue {
   mixinValue = 'Hello'
+
+  add(a: number, b: number): number {
+    return a + b;
+  }
 }

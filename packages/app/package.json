@@ -11,8 +11,10 @@
     "test:unit": "vue-cli-service test:unit"
   },
   "dependencies": {
+    "@vuex-orm/core": "^0.31.9",
     "core-js": "^2.6.5",
     "inversify": "^5.0.1",
+    "normalizr": "^3.3.0",
     "reflect-metadata": "^0.1.13",
     "register-service-worker": "^1.6.2",
     "todo": "^1.0.0",

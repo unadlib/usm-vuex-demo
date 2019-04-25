@@ -21,6 +21,6 @@
 Run
 ```bash
 yarn
-npx lerna boostrap
+npx lerna bootstrap
 yarn start
 ```

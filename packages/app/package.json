@@ -16,7 +16,7 @@
     "reflect-metadata": "^0.1.13",
     "register-service-worker": "^1.6.2",
     "todo": "^1.0.0",
-    "usm-vuex": "^1.0.6",
+    "usm-vuex": "^1.1.0",
     "vue": "^2.6.6",
     "vue-class-component": "^6.0.0",
     "vue-property-decorator": "^8.0.0",

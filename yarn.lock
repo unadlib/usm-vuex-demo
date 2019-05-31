@@ -13166,19 +13166,19 @@ use@^3.1.0:
   resolved "https://registry.yarnpkg.com/use/-/use-3.1.1.tgz#d50c8cac79a19fbc20f2911f56eb973f4e10070f"
   integrity sha512-cwESVXlO3url9YWlFW/TA9cshCEhtu7IKJ/p5soJ/gGpj7vbvFrAY/eIioQ6Dw23KjZhYgiIo8HOs1nQ2vr/oQ==
 
-usm-vuex@^1.0.6:
-  version "1.0.6"
-  resolved "https://registry.yarnpkg.com/usm-vuex/-/usm-vuex-1.0.6.tgz#a668c250d892cfb67150f1a657a14f05341d96d9"
-  integrity sha512-KldjsxCF7rkiposHC6RkXKbzqgp84D8kmfmhgAdfqiCx0xP97CL6ozs4zqHyPYILyKQF3MLx+NIB2o+iabz8EQ==
+usm-vuex@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/usm-vuex/-/usm-vuex-1.1.0.tgz#8504f230f12a20c18f872fbf52954d82b184e560"
+  integrity sha512-Oku7RfLby5RnknSZWt7BaMtHL8KxEKfy9A8eT2YSNoseQu+AJ3nx4S/uRzy1AA/dipH8ht3wT0Y9clgRo6TJRw==
   dependencies:
-    usm "^1.0.6"
+    usm "^1.1.0"
     vue "^2.6.6"
     vuex "^3.1.0"
 
-usm@^1.0.6:
-  version "1.0.6"
-  resolved "https://registry.yarnpkg.com/usm/-/usm-1.0.6.tgz#74ec5fa56f7ea6d14fff498ddb33814256d5e0a7"
-  integrity sha512-kneIPwAXn4ugEzonNTrS1bc86K0pFnrz3qoK7OQidlHa5By+R9J7SXVEJdDyhz9RNuP4/4UMp0vS/Xgq/W835g==
+usm@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/usm/-/usm-1.1.0.tgz#583b4d601819b840cc007e64e8fcf32da2b1ffa8"
+  integrity sha512-Y4LwSpX0nubP7jCyGaoMA6HB/t8iJ46i/rAJjxMScsxn/ioiWFqgZVQBGhJZl/LAs7gSc/D9xTFclTjn6Y2j1A==
 
 util-deprecate@^1.0.1, util-deprecate@~1.0.1:
   version "1.0.2"
@@ -13434,7 +13434,7 @@ webidl-conversions@^4.0.2:
   resolved "https://registry.yarnpkg.com/webidl-conversions/-/webidl-conversions-4.0.2.tgz#a855980b1f0b6b359ba1d5d9fb39ae941faa63ad"
   integrity sha512-YQ+BmxuTgd6UXZW3+ICGfyqRyHXVlD5GtQr5+qjiNW7bF0cqrzX500HVXPBOvgXb5YnzDd+h0zqyv61KUD7+Sg==
 
-webpack-bundle-analyzer@^3.0.4, webpack-bundle-analyzer@^3.3.2:
+webpack-bundle-analyzer@^3.0.4:
   version "3.3.2"
   resolved "https://registry.yarnpkg.com/webpack-bundle-analyzer/-/webpack-bundle-analyzer-3.3.2.tgz#3da733a900f515914e729fcebcd4c40dde71fc6f"
   integrity sha512-7qvJLPKB4rRWZGjVp5U1KEjwutbDHSKboAl0IfafnrdXMrgC0tOtZbQD6Rw0u4cmpgRN4O02Fc0t8eAT+FgGzA==

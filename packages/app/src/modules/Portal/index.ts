@@ -22,12 +22,14 @@ export default class Portal extends Module {
     @inject("Navigation") navigation: Navigation,
     @inject("AppOptions") appOptions: AppOptions,
   ) {
-    const modules = {
-      counter,
-      navigation,
-      todos
+    const params = {
+      modules: {
+        counter,
+        navigation,
+        todos
+      }
     };
-    super({ modules });
+    super(params as any);
     this._counter = counter;
     this._todos = todos;
     this._navigation = navigation;

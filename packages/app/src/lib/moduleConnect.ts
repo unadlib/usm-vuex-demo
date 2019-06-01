@@ -8,7 +8,8 @@ export default (ViewContainer: any, module: string) => {
   })
   class Container extends Vue {
     get module() {
-      return this.portal[module];
+      const portal = this.portal as any;
+      return portal[module];
     }
 
     render(createElement: any) {

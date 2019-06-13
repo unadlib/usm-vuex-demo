@@ -40,5 +40,6 @@ const {
 });
 
 Vue.prototype.portal = portal;
+(window as any).portal = portal;
 
 new Vue(app).$mount("#app");

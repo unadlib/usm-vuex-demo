@@ -5,43 +5,35 @@ console.log(Todo);
 
 interface Todo {
   text: string;
-  completed: boolean;
+  done: boolean;
 }
 
 @injectable()
-export default class Counter extends Module {
+export default class Todos extends Module {
   @state list: Todo[] = [];
 
   @action
-  add(text: string, state?: any) {
-    state.list.push({ text, completed: false });
+  addTodo(text: string, state?: any) {
+    state.list.push({ text, done: false });
   }
 
   @action
-  toggle(index: number, state?: any) {
-    const todo = state.list[index];
-    todo.completed = !todo.completed;
-  }
-
-  @action
-  edit(text: string, index: number, state?: any) {
-    state.list[index].text = text;
-  }
-
-  @action
-  remove(index: number, state?: any) {
+  removeTodo(todo: Todo, state?: any) {
+    const index = state.list.indexOf(todo);
     state.list.splice(index, 1);
   }
 
-  @action
-  clearAllCompleted(state?: any) {
-    state.list = state.list.filter(({ completed }: Todo) => !completed);
+  clearCompleted() {
+    this.list.filter((todo: Todo) => todo.done)
+      .forEach((todo: Todo) => {
+        this.removeTodo(todo);
+      });
   }
 
   getViewProps() {
     return {
       list: this.list,
-      add: (text: string) => this.add(text)
+      add: (text: string) => this.addTodo(text)
     }
   }
 }

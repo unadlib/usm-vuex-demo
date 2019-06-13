@@ -29,7 +29,7 @@ export default class Portal extends Module {
         todos
       }
     };
-    super(params as any);
+    super(params);
     this._counter = counter;
     this._todos = todos;
     this._navigation = navigation;

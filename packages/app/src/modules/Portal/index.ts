@@ -9,13 +9,15 @@ export interface AppOptions {
   main: any;
   components: any;
 }
-@injectable()
-export default class Portal extends Module {
-  public _counter: Counter;
-  public _todos: Todos;
-  public _navigation: Navigation;
-  public _appOptions: AppOptions;
 
+interface PortalDeps {
+  counter: Counter;
+  todos: Todos;
+  navigation: Navigation;
+  appOptions: AppOptions;
+}
+@injectable()
+export default class Portal extends Module<PortalDeps> {
   constructor(
     @inject("Counter") counter: Counter,
     @inject("Todos") todos: Todos,
@@ -26,34 +28,31 @@ export default class Portal extends Module {
       modules: {
         counter,
         navigation,
-        todos
+        todos,
+        appOptions
       }
     };
     super(params);
-    this._counter = counter;
-    this._todos = todos;
-    this._navigation = navigation;
-    this._appOptions = appOptions;
   }
 
   get counter() {
-    return this._counter;
+    return this._modules.counter;
   }
 
   get todos() {
-    return this._todos;
+    return this._modules.todos;
   }
 
   get navigation() {
-    return this._navigation;
+    return this._modules.navigation;
   }
 
   get main() {
-    return this._appOptions.main;
+    return this._modules.appOptions.main;
   }
 
   get routes() {
-    return Object.entries(this._appOptions.components)
+    return Object.entries(this._modules.appOptions.components)
       .map((item: any) => {
         const [name, {path, screen, module}] = item;
         const component = moduleConnect(screen, module);

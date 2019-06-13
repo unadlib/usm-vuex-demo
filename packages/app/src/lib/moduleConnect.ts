@@ -16,8 +16,8 @@ export default (ViewContainer: any, module: string) => {
       const props = this.module.getViewProps();
       return createElement(ViewContainer, {
         props
-      })
+      });
     }
   }
   return Container;
-}
+};

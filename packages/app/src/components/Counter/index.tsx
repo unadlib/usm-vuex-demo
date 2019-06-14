@@ -9,9 +9,12 @@ export default class CounterView extends Mixins<FoobarMixin>(FoobarMixin) {
   @Prop() count!: number;
   @Prop(Function) calculate!: Calculate;
 
-  // created () {
-  //   console.log(this.add(1, 1), this.mixinValue);
-  // }
+  created () {
+    console.log("created ====>", this.add(1, 1));
+    this.log({
+      text: this.mixinValue
+    });
+  }
 
   log(value: Value) {
     console.log(value.text);

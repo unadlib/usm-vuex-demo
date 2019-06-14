@@ -1,4 +1,4 @@
-import { Container } from 'inversify';
+import { Container } from "inversify";
 
 export function load(params: any = {}) {
   const { bootstrap, modules, ...option } =  params;
@@ -12,6 +12,6 @@ export function load(params: any = {}) {
   const app = portal.createApp();
   return {
     portal,
-    app,
+    app
   };
 }

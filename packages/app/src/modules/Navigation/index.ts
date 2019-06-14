@@ -5,16 +5,19 @@ import Module from "../../lib/baseModule";
 
 @injectable()
 export default class Navigation extends Module {
+  public router?: Router;
+
   constructor(...args: []) {
     super(...args);
     Vue.use(Router);
   }
 
   createRouter(routes: any) {
-    return new Router({
+    this.router = new Router({
       mode: "history",
       base: process.env.BASE_URL,
       routes
     });
+    return this.router;
   }
 }

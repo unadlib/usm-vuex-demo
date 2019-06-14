@@ -1,7 +1,7 @@
 import "reflect-metadata";
 import Vue from "vue";
 import "./registerServiceWorker";
-import { load } from './lib/loader';
+import { load } from "./lib/loader";
 import Portal from "./modules/Portal";
 import Counter from "./modules/Counter";
 import Todos from "./modules/Todos";
@@ -12,11 +12,8 @@ import CounterView from "./components/Counter";
 
 Vue.config.productionTip = false;
 
-const {
-  portal,
-  app,
-} = load({
-  bootstrap: 'Portal',
+const { portal, app } = load({
+  bootstrap: "Portal",
   modules: {
     Counter,
     Todos,
@@ -27,15 +24,15 @@ const {
   components: {
     home: {
       screen: TodosView,
-      path: '/',
-      module: 'todos',
+      path: "/",
+      module: "todos"
     },
     counter: {
-      screen: CounterView,
-      // screen: () => import("./views/Counter.vue"),
-      path: '/counter',
-      module: 'counter',
-    },
+      // screen: CounterView,
+      screen: () => import("./components/Counter"),
+      path: "/counter",
+      module: "counter"
+    }
   }
 });
 

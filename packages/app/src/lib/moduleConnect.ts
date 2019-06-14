@@ -7,16 +7,26 @@ export default (ViewContainer: any, module: string) => {
     }
   })
   class Container extends Vue {
+    props = ViewContainer.props;
+
     get module() {
       const portal = this.portal as any;
       return portal[module];
     }
 
     render(createElement: any) {
-      const props = this.module.getViewProps();
+      const slots = Object.entries(this.$slots)
+        .map(([_, node]: [string, any]) => {
+          node.context = (this as any)._self
+          return node
+        });
+      const props = this.module.getViewProps(this.$props, this.$attrs);
       return createElement(ViewContainer, {
-        props
-      });
+        props,
+        scopedSlots: this.$scopedSlots,
+        on: this.$listeners,
+        attrs: this.$attrs,
+      }, slots);
     }
   }
   return Container;

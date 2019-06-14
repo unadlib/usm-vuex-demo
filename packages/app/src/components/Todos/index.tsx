@@ -13,6 +13,7 @@ export default class TodosView extends Vue {
   @Prop(Array) list!: any[];
 
   render() {
+    console.log(this);
     return (
       <div class="home">
         {/* <input v-model={this.value} />

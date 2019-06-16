@@ -1,5 +1,6 @@
-import { injectable } from "inversify";
+import { injectable, inject } from "inversify";
 import Module, { state, action, computed } from "../../lib/baseModule";
+import Counter from "../Counter";
 import Todo from 'todo';
 console.log(Todo);
 
@@ -8,9 +9,23 @@ interface Todo {
   done: boolean;
 }
 
+interface TodosDeps {
+  counter: Counter;
+}
+
 @injectable()
-export default class Todos extends Module {
+export default class Todos extends Module<TodosDeps> {
   @state list: Todo[] = [];
+
+  constructor(
+    @inject("Counter") counter: Counter,
+  ) {
+    super({
+      modules: {
+        counter,
+      }
+    });
+  }
 
   @action
   addTodo(text: string, state?: any) {
@@ -30,10 +45,17 @@ export default class Todos extends Module {
       });
   }
 
+  @computed
+  get count() {
+    console.log('computed');
+    return this._modules.counter.count;
+  }
+
   getViewProps() {
     return {
       list: this.list,
-      add: (text: string) => this.addTodo(text)
+      count: this.count,
+      add: (text: string) => this.addTodo(text),
     }
   }
 }

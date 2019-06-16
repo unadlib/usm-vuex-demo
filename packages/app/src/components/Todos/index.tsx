@@ -11,6 +11,7 @@ export default class TodosView extends Vue {
 
   @Prop(Function) add!: (input: string) => void;
   @Prop(Array) list!: any[];
+  @Prop(Number) count!: number;
 
   render() {
     return (
@@ -32,6 +33,7 @@ export default class TodosView extends Vue {
           }}
         }
         />
+        <p>Counter Module: {this.count}</p>
         <ul>
           {this.list.map(({ text }) => (
             <li>{text}</li>

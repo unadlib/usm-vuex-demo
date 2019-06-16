@@ -1,11 +1,11 @@
-0 silly input [ 'todo' ]
+0 silly input [ 'todp' ]
 1 silly flags { _: [ 'add' ],
 1 silly flags   'reject-cycles': false,
 1 silly flags   rejectCycles: false,
 1 silly flags   dev: false,
 1 silly flags   D: false,
 1 silly flags   scope: 'app',
-1 silly flags   args: [ 'todo' ] }
+1 silly flags   args: [ 'todp' ] }
 2 verbose rootPath /Users/michael.lin/Sites/usm-vuex-demo
 3 info version 2.11.0
 4 silly isInitialized
@@ -13,14 +13,7 @@
 6 silly existsSync /Users/michael.lin/Sites/usm-vuex-demo/VERSION
 7 info versioning independent
 8 info scope app
-9 error EPACKAGES Errored while collecting packages and package graph
-10 error Error: No packages found that match scope 'app'
-10 error     at Function.filterPackages (/usr/local/lib/node_modules/lerna/lib/PackageUtilities.js:252:17)
-10 error     at AddCommand.runPreparations (/usr/local/lib/node_modules/lerna/lib/Command.js:333:60)
-10 error     at /usr/local/lib/node_modules/lerna/lib/Command.js:209:18
-10 error     at new Promise (<anonymous>)
-10 error     at AddCommand.run (/usr/local/lib/node_modules/lerna/lib/Command.js:193:14)
-10 error     at Object.handler (/usr/local/lib/node_modules/lerna/lib/commands/AddCommand.js:79:14)
-10 error     at Object.self.runCommand (/usr/local/lib/node_modules/lerna/node_modules/yargs/lib/command.js:233:22)
-10 error     at Object.Yargs.self._parseArgs (/usr/local/lib/node_modules/lerna/node_modules/yargs/yargs.js:990:30)
-10 error     at Object.Yargs.self.parse (/usr/local/lib/node_modules/lerna/node_modules/yargs/yargs.js:532:23)
+9 silly initialize attempt
+10 error initialize callback with error
+11 error Error: Package `todp` doesn't exist
+11 error     at got.then.catch.err (/usr/local/lib/node_modules/lerna/node_modules/package-json/index.js:62:11)

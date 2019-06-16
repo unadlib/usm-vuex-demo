@@ -33,6 +33,7 @@ export default class Portal extends Module<PortalDeps> {
       }
     };
     super(params);
+    this.bootstrap();
   }
 
   get counter() {

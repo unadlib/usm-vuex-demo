@@ -42,13 +42,11 @@ export default class HelloWorld extends Vue {
   msg!: string
 
   get count() {
-    // TODO: type
-    return (this as any).counter.count.sum;
+    return this.counter.count.sum;
   }
 
   increase() {
-    // TODO: type
-    (this as any).counter.increase();
+    this.counter.increase();
   }
 }
 </script>

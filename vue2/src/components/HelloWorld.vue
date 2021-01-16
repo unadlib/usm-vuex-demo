@@ -39,13 +39,11 @@ export default Vue.extend({
     msg: String,
   },
   computed: {
-    // TODO: type
-    count() { return (this as any).counter.count.sum },
+    count(this: Vue) { return this.counter.count.sum },
   },
   methods: {
     increase() {
-      // TODO: type
-      (this as any).counter.increase();
+      this.counter.increase();
     },
   }
 });
